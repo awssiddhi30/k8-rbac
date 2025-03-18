@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::442426859105:role/eksctl-expense-cluster-nodegroup-e-NodeInstanceRole-p4w0XdrhVcVs
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - default-trainee
+      userarn: arn:aws:iam::442426859105:user/siree
+      username: siree
+    
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-03-17T08:56:40Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "13141"
+  uid: 8b334839-5645-4ef0-8871-03c9e05059c7
